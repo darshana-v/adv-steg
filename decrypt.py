@@ -6,19 +6,15 @@ with open('filekey.key', 'rb') as filekey:
     
 fernet = Fernet(key)
 
-# # opening the encrypted file
-# with open('text.csv', 'rb') as enc_file:
-#     encrypted = enc_file.read()
-
-# print(lsb.reveal('./encoded_image.jpeg'))
-# encrypted = bytes(lsb.reveal('./encoded_example.png'), 'utf-8')
+# decoding file from image using lsb algorithm
 encrypted = lsb.reveal('./encoded_example.png')
-print(type(encrypted))
-print(encrypted)
+# print(type(encrypted))
+# print(encrypted)
 
 # decrypting the file
 decrypted = fernet.decrypt(encrypted.encode('utf-8'))
-print(decrypted)
+# print(decrypted)
+
 # opening the file in write mode and
 # writing the decrypted data
 with open('text.csv', 'wb') as dec_file:
